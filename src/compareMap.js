@@ -64,23 +64,36 @@
 // getSumByFp()
 // getSumByUnFp()
 //  -----------------------------------------
-import _ from "../../node_modules/lodash";
+import _ from "lodash";
+export default () => {
+  // console.log(arr)
 
-let arr = [];
-const count = 1000000;
-for (i = 0; i < count; i++) arr.push(i);
-// console.log(arr)
+  function arr() {
+    let arr = [];
+    const count = 1000000;
+    for (let i = 0; i < count; i++) arr.push(i);
 
-function arrFliter() {
-  const start = Date.now();
-  arr.filter((item) => item % 2 === 0);
-  console.log(Date.now() - start + "ms");
-}
+    const start = Date.now();
+    arr.forEach((item) => item++);
+    console.log(arr[0]);
+    console.log("arrFliter", Date.now() - start + "ms");
+  }
 
-function lodashFliter() {
-  const start = Date.now();
-  arr.filter((item) => item % 2 === 0);
-  console.log(Date.now() - start + "ms");
-}
+  function lodash() {
+    let arr = [];
+    const count = 1000000;
+    for (let i = 0; i < count; i++) arr.push(i);
 
-arrFliter();
+    const start = Date.now();
+    _.each(arr, (item) => item++);
+    console.log(arr[0]);
+    console.log("lodashFliter", Date.now() - start + "ms");
+  }
+
+  arr();
+  lodash();
+
+  const title = document.createElement("h2");
+  title.textContent = "CompareLodash";
+  document.body.append(title);
+};
