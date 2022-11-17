@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add lodash
+  C:\Program Files\nodejs\node.exe C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add webpack-dev-server
 
 PATH: 
   C:\Python310\Scripts\;C:\Python310\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;F:\QuickTime\QTSystem\;C:\Program Files\Next Limit\RFConnect 6 For Maya;C:\Program Files\Common Files\Autodesk Shared\;C:\MinGW\bin;C:\Program Files\Polyspace\R2019b\runtime\win64;C:\Program Files\Polyspace\R2019b\bin;C:\Program Files\Polyspace\R2019b\polyspace\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2020.3.1\;C:\texlive\2022\bin\win32;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Users\Dragon\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\Dragon\AppData\Local\Programs\Python\Python38-32\;C:\Users\Dragon\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\Dragon\AppData\Local\Programs\Python\Python38\;C:\Users\Dragon\AppData\Local\Microsoft\WindowsApps;C:\Users\Dragon\AppData\Local\Programs\Microsoft VS Code\bin;C:\MinGW\bin;C:\Program Files\JetBrains\PhpStorm 2020.1\bin;;C:\Program Files\JetBrains\WebStorm 2020.1.3\bin;;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Scripts;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\bin;F:\Bandizip\;C:\Users\Dragon\AppData\Local\GitHubDesktop\bin;C:\Users\Dragon\AppData\Roaming\npm
@@ -14,8 +14,12 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: read ECONNRESET
-      at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)
+  SyntaxError: E:\01_coding\practiceWebpack\package.json: Unexpected token < in JSON at position 233
+      at JSON.parse (<anonymous>)
+      at C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
 
 npm manifest: 
   {
@@ -29,6 +33,13 @@ npm manifest:
     "devDependencies": {
       "webpack": "^5.75.0",
       "webpack-cli": "^4.10.0"
+    },
+    "dependencies": {
+  <<<<<<< HEAD
+      "lodash": "^4.17.21"
+  =======
+      "echarts": "^5.4.0"
+  >>>>>>> 799440e0aaa321b6c3ead846d862f3983c894952
     }
   }
 
@@ -352,6 +363,14 @@ Lockfile:
       shebang-command "^2.0.0"
       which "^2.0.1"
   
+  echarts@^5.4.0:
+    version "5.4.0"
+    resolved "https://registry.npmmirror.com/echarts/-/echarts-5.4.0.tgz#a9a8e5367293a397408d3bf3e2638b869249ce04"
+    integrity sha512-uPsO9VRUIKAdFOoH3B0aNg7NRVdN7aM39/OjovjO9MwmWsAkfGyeXJhK+dbRi51iDrQWliXV60/XwLA7kg3z0w==
+    dependencies:
+      tslib "2.3.0"
+      zrender "5.4.0"
+  
   electron-to-chromium@^1.4.251:
     version "1.4.284"
     resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.284.tgz#61046d1e4cab3a25238f6bf7413795270f125592"
@@ -532,6 +551,11 @@ Lockfile:
     integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
     dependencies:
       p-locate "^4.1.0"
+  
+  lodash@^4.17.21:
+    version "4.17.21"
+    resolved "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+    integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
   
   merge-stream@^2.0.0:
     version "2.0.0"
@@ -737,6 +761,11 @@ Lockfile:
       commander "^2.20.0"
       source-map-support "~0.5.20"
   
+  tslib@2.3.0:
+    version "2.3.0"
+    resolved "https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+    integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
+  
   update-browserslist-db@^1.0.9:
     version "1.0.10"
     resolved "https://registry.npmmirror.com/update-browserslist-db/-/update-browserslist-db-1.0.10.tgz#0f54b876545726f17d00cd9a2561e6dade943ff3"
@@ -832,3 +861,10 @@ Lockfile:
     version "2.0.0"
     resolved "https://registry.npmmirror.com/wildcard/-/wildcard-2.0.0.tgz#a77d20e5200c6faaac979e4b3aadc7b3dd7f8fec"
     integrity sha512-JcKqAHLPxcdb9KM49dufGXn2x3ssnfjbcaQdLlfZsL9rH9wgDQjUtDxbo8NE0F6SFvydeu1VhZe7hZuHsB2/pw==
+  
+  zrender@5.4.0:
+    version "5.4.0"
+    resolved "https://registry.npmmirror.com/zrender/-/zrender-5.4.0.tgz#d4f76e527b2e3bbd7add2bdaf27a16af85785576"
+    integrity sha512-rOS09Z2HSVGFs2dn/TuYk5BlCaZcVe8UDLLjj1ySYF828LATKKdxuakSZMvrDz54yiKPDYVfjdKqcX8Jky3BIA==
+    dependencies:
+      tslib "2.3.0"
