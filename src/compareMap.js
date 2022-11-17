@@ -183,12 +183,11 @@
   {name:'李四', chinese:89,math:49,english:97}
   ...
 ]
-统计班级中各科目不及格的人数
-*/
-import _ from "lodash";
-<<<<<<< HEAD
-import fp from "lodash/fp";
-// export default () => {
+// 统计班级中各科目不及格的人数
+// */
+// import _ from "lodash";
+// import fp from "lodash/fp";
+// // export default () => {
 //   // console.log(arr)
 
 //   function arr() {
@@ -221,163 +220,161 @@ import fp from "lodash/fp";
 //   document.body.append(title);
 // };
 
-// 非纯函数 => curried
-class Container {
-  static of(x) {
-    return new Container(x);
-  }
-  constructor(x) {
-    this._value = x;
-  }
-  map(fn) {
-    return Container.of(fn(this._value));
-  }
-}
-class IO {
-  static of(x) {
-    return new IO(function () {
-      return x;
-    });
-  }
+// // 非纯函数 => curried
+// class Container {
+//   static of(x) {
+//     return new Container(x);
+//   }
+//   constructor(x) {
+//     this._value = x;
+//   }
+//   map(fn) {
+//     return Container.of(fn(this._value));
+//   }
+// }
+// class IO {
+//   static of(x) {
+//     return new IO(function () {
+//       return x;
+//     });
+//   }
 
-  constructor(fn) {
-    this._value = fn;
-  }
-  map(fn) {
-    return new IO(fp.flowRight(fn, this._value));
-  }
-}
+//   constructor(fn) {
+//     this._value = fn;
+//   }
+//   map(fn) {
+//     return new IO(fp.flowRight(fn, this._value));
+//   }
+// }
 
-export default () => {
-  let i = 0;
-  let count = 1000000;
-  // function getSumByCurriedFunctor() {
-  //   let sum = Container.of(0);
-  //   const fp = function (container, v2) {
-  //     return container.map((item) => item + v2)._value;
-  //   };
-  //   const curriedFn = _.curry(fp);
-  //   const curriedFnSum = curriedFn(sum);
-  //   const start = Date.now();
-  //   for (i = 0; i < count; i++) {
-  //     curriedFnSum(i);
-  //   }
-  //   console.log(
-  //     "getSumByCurriedFunctor",
-  //     sum._value,
-  //     Date.now() - start + "ms"
-  //   );
-  // }
-  function getSumByCurriedFunctor() {
-    let sum = { value: 0 };
-    const fp = function (v1, v2) {
-      return v1.value + v2;
-    };
-    const curriedFn = _.curry(fp);
-    const curriedFnSum = curriedFn(sum);
-    const start = Date.now();
-    for (i = 0; i < count; i++) {
-      sum.value = curriedFnSum(i);
-    }
-    console.log("getSumByCurriedFunctor", sum.value, Date.now() - start + "ms");
-  }
+// export default () => {
+//   let i = 0;
+//   let count = 1000000;
+// function getSumByCurriedFunctor() {
+//   let sum = Container.of(0);
+//   const fp = function (container, v2) {
+//     return container.map((item) => item + v2)._value;
+//   };
+//   const curriedFn = _.curry(fp);
+//   const curriedFnSum = curriedFn(sum);
+//   const start = Date.now();
+//   for (i = 0; i < count; i++) {
+//     curriedFnSum(i);
+//   }
+//   console.log(
+//     "getSumByCurriedFunctor",
+//     sum._value,
+//     Date.now() - start + "ms"
+//   );
+// }
+//   function getSumByCurriedFunctor() {
+//     let sum = { value: 0 };
+//     const fp = function (v1, v2) {
+//       return v1.value + v2;
+//     };
+//     const curriedFn = _.curry(fp);
+//     const curriedFnSum = curriedFn(sum);
+//     const start = Date.now();
+//     for (i = 0; i < count; i++) {
+//       sum.value = curriedFnSum(i);
+//     }
+//     console.log("getSumByCurriedFunctor", sum.value, Date.now() - start + "ms");
+//   }
 
-  // 纯函数
-  function getSumByFp() {
-    let sum = 0;
-    function fp(v1, v2) {
-      return v1 + v2;
-    }
-    const start = Date.now();
-    for (i = 0; i < count; i++) {
-      sum = fp(sum, i);
-    }
-    console.log("getSumByFp", sum, Date.now() - start + "ms");
-  }
+//   // 纯函数
+//   function getSumByFp() {
+//     let sum = 0;
+//     function fp(v1, v2) {
+//       return v1 + v2;
+//     }
+//     const start = Date.now();
+//     for (i = 0; i < count; i++) {
+//       sum = fp(sum, i);
+//     }
+//     console.log("getSumByFp", sum, Date.now() - start + "ms");
+//   }
 
-  getSumByFp();
-  getSumByCurriedFunctor();
-=======
-let arr = [];
-let count = 1000000;
+//   getSumByFp();
+//   getSumByCurriedFunctor();
+// let arr = [];
+// let count = 1000000;
 
-for (let i = 0; i < count; i++) {
-  arr.push({
-    name: `${
-      ["张", "李", "孙", "王", "钱", "黄"][
-        ((Math.random() * 100) % 6).toFixed()
-      ]
-    }${
-      ["一", "二", "三", "四", "五", "六"][
-        ((Math.random() * 100) % 6).toFixed()
-      ]
-    }${
-      ["一", "二", "三", "四", "五", "六"][
-        ((Math.random() * 100) % 6).toFixed()
-      ]
-    }`,
-    chinese: (Math.random() * 100).toFixed(),
-    math: (Math.random() * 100).toFixed(),
-    english: (Math.random() * 100).toFixed(),
-  });
-}
+// for (let i = 0; i < count; i++) {
+//   arr.push({
+//     name: `${
+//       ["张", "李", "孙", "王", "钱", "黄"][
+//         ((Math.random() * 100) % 6).toFixed()
+//       ]
+//     }${
+//       ["一", "二", "三", "四", "五", "六"][
+//         ((Math.random() * 100) % 6).toFixed()
+//       ]
+//     }${
+//       ["一", "二", "三", "四", "五", "六"][
+//         ((Math.random() * 100) % 6).toFixed()
+//       ]
+//     }`,
+//     chinese: (Math.random() * 100).toFixed(),
+//     math: (Math.random() * 100).toFixed(),
+//     english: (Math.random() * 100).toFixed(),
+//   });
+// }
 
-const getByForeach = () => {
-  let count = [0, 0, 0];
-  let start = Date.now();
-  arr.forEach((item) => {
-    if (item.chinese > 60) count[0]++;
-    if (item.math > 60) count[1]++;
-    if (item.english > 60) count[2]++;
-  });
+// const getByForeach = () => {
+//   let count = [0, 0, 0];
+//   let start = Date.now();
+//   arr.forEach((item) => {
+//     if (item.chinese > 60) count[0]++;
+//     if (item.math > 60) count[1]++;
+//     if (item.english > 60) count[2]++;
+//   });
 
-  console.log("getByForeach", count, Date.now() - start + "ms");
-};
+//   console.log("getByForeach", count, Date.now() - start + "ms");
+// };
 
-const getByFilter = () => {
-  let count = [0, 0, 0];
-  let start = Date.now();
-  count[0] = arr.filter((item) => item.chinese > 60).length;
-  count[1] = arr.filter((item) => item.math > 60).length;
-  count[2] = arr.filter((item) => item.english > 60).length;
-  console.log("getByFilter", count, Date.now() - start + "ms");
-};
+// const getByFilter = () => {
+//   let count = [0, 0, 0];
+//   let start = Date.now();
+//   count[0] = arr.filter((item) => item.chinese > 60).length;
+//   count[1] = arr.filter((item) => item.math > 60).length;
+//   count[2] = arr.filter((item) => item.english > 60).length;
+//   console.log("getByFilter", count, Date.now() - start + "ms");
+// };
 
-const getByFp = () => {
-  class Container {
-    static of(x) {
-      return new Container(x);
-    }
-    constructor(x) {
-      this._value = x;
-    }
-    map(fn) {
-      return Container.of(fn(this._value));
-    }
-  }
+// const getByFp = () => {
+//   class Container {
+//     static of(x) {
+//       return new Container(x);
+//     }
+//     constructor(x) {
+//       this._value = x;
+//     }
+//     map(fn) {
+//       return Container.of(fn(this._value));
+//     }
+//   }
 
-  const curriedFilterItem = _.curry(function (threshold, arr, item) {
-    return arr.filter((it) => it[item] > threshold).length;
-  })(60);
+//   const curriedFilterItem = _.curry(function (threshold, arr, item) {
+//     return arr.filter((it) => it[item] > threshold).length;
+//   })(60);
 
-  const arrFilter = curriedFilterItem(arr);
+//   const arrFilter = curriedFilterItem(arr);
 
-  let count = [0, 0, 0];
-  let start = Date.now();
-  count[0] = arrFilter("chinese");
-  count[1] = arrFilter("math");
-  count[2] = arrFilter("english");
-  console.log("getByFp", count, Date.now() - start + "ms");
->>>>>>> 799440e0aaa321b6c3ead846d862f3983c894952
-};
+//   let count = [0, 0, 0];
+//   let start = Date.now();
+//   count[0] = arrFilter("chinese");
+//   count[1] = arrFilter("math");
+//   count[2] = arrFilter("english");
+//   console.log("getByFp", count, Date.now() - start + "ms");
+// };
 
-getByForeach();
-getByFilter();
-getByFp();
-getByForeach();
-getByFilter();
-getByFp();
+// getByForeach();
+// getByFilter();
+// getByFp();
+// getByForeach();
+// getByFilter();
+// getByFp();
 
-getByForeach();
-getByFilter();
-getByFp();
+// getByForeach();
+// getByFilter();
+// getByFp();

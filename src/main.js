@@ -3,6 +3,11 @@ import * as echarts from "echarts";
 // const heading = createHeading();
 // document.body.append(heading);
 
+const div = document.createElement("div");
+div.id = "main";
+div.style.width = "600px";
+div.style.height = "400px";
+document.body.append(div);
 var myChart = echarts.init(document.getElementById("main"));
 
 myChart.setOption({
@@ -27,14 +32,3 @@ myChart.setOption({
     },
   ],
 });
-
-const button = document.createElement("input");
-
-button.type = "button";
-button.value = "改变数据";
-button.addEventListener("click", () => {
-  console.log(myChart);
-
-  myChart.series[0].data = [10, 5, 30, 5, 20, 10];
-});
-document.body.append(button);

@@ -14,12 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: E:\01_coding\practiceWebpack\package.json: Unexpected token < in JSON at position 233
-      at JSON.parse (<anonymous>)
-      at C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
-      at C:\Users\Dragon\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+  Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:217:20)
 
 npm manifest: 
   {
@@ -35,11 +31,8 @@ npm manifest:
       "webpack-cli": "^4.10.0"
     },
     "dependencies": {
-  <<<<<<< HEAD
-      "lodash": "^4.17.21"
-  =======
+      "lodash": "^4.17.21",
       "echarts": "^5.4.0"
-  >>>>>>> 799440e0aaa321b6c3ead846d862f3983c894952
     }
   }
 
