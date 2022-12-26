@@ -32,3 +32,5 @@ myChart.setOption({
     },
   ],
 });
+
+console.log("打印 main.js");
