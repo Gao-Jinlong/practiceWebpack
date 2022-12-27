@@ -52,7 +52,7 @@ Flag / 别名 | 类型 | 描述
 --stats | boolean, string | 它告诉 webpack 如何处理 stats
 --analyze | boolean | 它调用 webpack-bundle-analyzer 插件来获取 bundle 信息
 
-注意：  
+示例：  
 
 `--env`:
 
@@ -126,7 +126,9 @@ yarn webpack --node-env production
 
 `--config-name`:
 
-如果配置文件导出的是一个数组，打包时会遍历数组分别进行打包，如果只想要重新进行某个特定配置的打包，那么可以使用 `--config-name` 来指定要使用的配置。
+如果配置文件导出的是一个数组，打包时会遍历数组分别进行打包，如果只想要重新进行某个特定配置的打包，那么可以使用 `--config-name` 来指定要使用的配置。例如：
+
+配置项如下
 
 ```js
 module.exports = [
@@ -152,6 +154,50 @@ module.exports = [
 
 ```
 
+使用命令
+
 ```cmd
-yarn webpack --config-name server
+yarn webpack --config-name production
 ```
+
+则只会打包 `name` 为 `production` 的配置项。
+
+## Node 接口
+
+Webpack 提供了 Node.js API，可以在 Node.js 运行时（runtime）下直接使用。
+
+### `webpack()`
+
+导入 `webpack` 函数会将*配置对象*传给 webpack，如果同时传入回调函数会在 webpack compiler 运行时被执行：
+
+```JavaScript
+const webpack = require('webpack');
+
+webpack({},(err, stats)=>{
+  if(err || stats.hasErrors()){
+    //...
+  }
+  // 处理完成
+})
+```
+
+> Tip
+> `err` 对象不包含编译错误，必须使用 `stats.hasErrors()` 单独处理，文档的[错误处理](https://webpack.docschina.org/api/node/#error-handling)将对这部分进行详细介绍。`err` 对象只包含 webpack 相关的问题，例如配置错误等。
+
+> Tip
+> 也可以为 `webpack` 函数提供一个配置数组。
+>
+> ```JavaScript
+> const webpack = require('webpack');
+> 
+> webpack([{},{}],(err, stats)=>{
+>  //...
+> })
+> ```
+
+### Compiler 实例（Compiler Instance）
+
+如果不向 `webpack` 传入可执行的回调函数，它会返回一个 webpack `Compiler` 实例。可以通过手动执行它或者为它的构建时添加一个监听器，就像 CLI 类似。 `Compiler` 实例提供了以下方法：
+
+- `.run(callback)`
+- `.watch(watchOptions, callback)`
